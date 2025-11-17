@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./App.css"
-import DemoOne from "./components/ui/demo"
 import { NavBar } from "./components/ui/tubelight-navbar"
+import { BackgroundPaths } from "./components/ui/background-paths"
 import { Home, User, Briefcase, FileText } from "lucide-react"
 
 type ProjectCategory = "fullstack"
@@ -87,15 +87,7 @@ function App() {
 
       {/* Hero Section */}
       <section className="hero" id="home">
-        <div className="hero-shader">
-          <DemoOne />
-        </div>
-        <div className="hero-overlay">
-          <p className="hero-subtitle">I’m Aarika Dev</p>
-          <h1 className="hero-title">
-            Crafting elegant digital products that feel as good as they work.
-          </h1>
-        </div>
+        <BackgroundPaths title="Crafting elegant digital products that feel as good as they work." />
       </section>
 
       {/* Process Section */}
