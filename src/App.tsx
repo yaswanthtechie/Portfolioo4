@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useState } from "react"
 import "./App.css"
 import DemoOne from "./components/ui/demo"
+import { NavBar } from "./components/ui/tubelight-navbar"
+import { Home, User, Briefcase, FileText } from "lucide-react"
 
-type ProjectCategory = "web" | "fullstack" | "enterprise"
+type ProjectCategory = "fullstack"
 
 type Project = {
   title: string
@@ -49,82 +51,29 @@ const projects: Project[] = [
 
 const categoryLabels: Record<ProjectCategory | "all", string> = {
   all: "All Projects",
-  web: "Web Development",
   fullstack: "Full Stack Application",
-  enterprise: "Enterprise Tool",
 }
+
+const filters: Array<{ key: "all" | ProjectCategory; label: string }> = [
+  { key: "all", label: categoryLabels.all },
+  { key: "fullstack", label: categoryLabels.fullstack },
+]
 
 function App() {
   const [activeFilter, setActiveFilter] = useState<"all" | ProjectCategory>("all")
   const [isFiltering, setIsFiltering] = useState(false)
-  const navIndicatorRef = useRef<HTMLDivElement | null>(null)
+
+  const navItems = [
+    { name: "Home", url: "#home", icon: Home },
+    { name: "About", url: "#about", icon: User },
+    { name: "Projects", url: "#work", icon: Briefcase },
+    { name: "Resume", url: "#contact", icon: FileText },
+  ]
 
   const filteredProjects =
     activeFilter === "all"
       ? projects
       : projects.filter((p) => p.category === activeFilter)
-
-  const updateIndicatorForLink = (link: HTMLAnchorElement | null) => {
-    if (!link || !navIndicatorRef.current || !link.parentElement) return
-    const rect = link.getBoundingClientRect()
-    const navRect = link.parentElement.getBoundingClientRect()
-
-    navIndicatorRef.current.style.width = `${rect.width}px`
-    navIndicatorRef.current.style.height = `${rect.height}px`
-    navIndicatorRef.current.style.left = `${rect.left - navRect.left}px`
-    navIndicatorRef.current.style.top = `${rect.top - navRect.top}px`
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll<HTMLElement>("section[id]")
-      let current = ""
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        if (window.pageYOffset >= sectionTop - 200) {
-          current = section.getAttribute("id") || ""
-        }
-      })
-
-      const navLinks = document.querySelectorAll<HTMLAnchorElement>("nav a")
-      navLinks.forEach((link) => {
-        link.classList.remove("active")
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active")
-          updateIndicatorForLink(link)
-        }
-      })
-
-      // Parallax effect for blur background
-      const blur = document.querySelector<HTMLDivElement>(".blur-bg")
-      if (blur) {
-        blur.style.transform = `translateY(${window.pageYOffset * 0.5}px)`
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    // Initial indicator position
-    const activeLink = document.querySelector<HTMLAnchorElement>("nav a.active")
-    if (activeLink) {
-      updateIndicatorForLink(activeLink)
-    }
-
-    const handleResize = () => {
-      const currentActive = document.querySelector<HTMLAnchorElement>("nav a.active")
-      if (currentActive) {
-        updateIndicatorForLink(currentActive)
-      }
-    }
-
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
 
   const handleFilterChange = (filter: "all" | ProjectCategory) => {
     setIsFiltering(true)
@@ -132,56 +81,20 @@ function App() {
     setTimeout(() => setIsFiltering(false), 300)
   }
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    href: string
-  ) => {
-    e.preventDefault()
-    const target = document.querySelector<HTMLElement>(href)
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" })
-    }
-
-    // Move indicator immediately to clicked link
-    updateIndicatorForLink(e.currentTarget)
-  }
-
   return (
     <div className="App">
-      {/* Header */}
-      <header>
-        <div className="nav-container">
-          <div className="logo">DEEKSHITHA</div>
-          <nav id="mainNav">
-            <div className="nav-indicator" ref={navIndicatorRef} />
-            <a
-              href="#home"
-              className="active"
-              onClick={(e) => handleNavClick(e, "#home")}
-            >
-              <span className="nav-light" />
-              Home
-            </a>
-            <a href="#about" onClick={(e) => handleNavClick(e, "#about")}>
-              <span className="nav-light" />
-              About
-            </a>
-            <a href="#work" onClick={(e) => handleNavClick(e, "#work")}>
-              <span className="nav-light" />
-              Projects
-            </a>
-            <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
-              <span className="nav-light" />
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <NavBar items={navItems} />
 
       {/* Hero Section */}
       <section className="hero" id="home">
         <div className="hero-shader">
           <DemoOne />
+        </div>
+        <div className="hero-overlay">
+          <p className="hero-subtitle">I’m Aarika Dev</p>
+          <h1 className="hero-title">
+            Crafting elegant digital products that feel as good as they work.
+          </h1>
         </div>
       </section>
 
@@ -261,21 +174,17 @@ function App() {
         <div className="section-title">Featured Projects</div>
 
         <div className="filter-controls">
-          {(["all", "web", "fullstack", "enterprise"] as const).map((filterKey) => (
+          {filters.map(({ key, label }) => (
             <button
-              key={filterKey}
+              key={key}
               className={
                 "filter-btn" +
-                (activeFilter === filterKey ? " active" : "") +
+                (activeFilter === key ? " active" : "") +
                 (isFiltering ? " filtering" : "")
               }
-              onClick={() =>
-                handleFilterChange(
-                  filterKey === "all" ? "all" : (filterKey as ProjectCategory)
-                )
-              }
+              onClick={() => handleFilterChange(key)}
             >
-              {categoryLabels[filterKey]}
+              {label}
             </button>
           ))}
         </div>
@@ -410,10 +319,10 @@ function App() {
 
             <div className="footer-column">
               <h4>Expertise</h4>
-              <a href="#work" onClick={(e) => handleNavClick(e, "#work")}>
+              <a href="#work">
                 Projects
               </a>
-              <a href="#about" onClick={(e) => handleNavClick(e, "#about")}>
+              <a href="#about">
                 About Me
               </a>
               <a

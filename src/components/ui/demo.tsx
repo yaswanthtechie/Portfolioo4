@@ -1,22 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { MeshGradient } from "@paper-design/shaders-react"
-import { Check, Copy } from "lucide-react"
 
 export default function DemoOne() {
   const speed = 1.0
-  const [copied, setCopied] = useState(false)
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText("pnpm i 21st")
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error("Failed to copy text: ", err)
-    }
-  }
 
   return (
     <div className="hero-shader-wrapper">
@@ -42,25 +29,7 @@ export default function DemoOne() {
             style={{ animationDuration: `${4 / speed}s`, animationDelay: "0.5s" }}
           />
         </div>
-
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="text-center font-mono text-xs text-white/60 backdrop-blur-sm bg-black/30 px-4 py-2 rounded-full flex items-center gap-2">
-            <div>...21st-cli...</div>
-            <div className="flex items-center gap-2 pointer-events-auto">
-              <span>pnpm i 21st.dev</span>
-              <button
-                onClick={copyToClipboard}
-                className="p-1 rounded-full border border-white/30 text-white/70 hover:text-white hover:border-white transition"
-                title="Copy to clipboard"
-              >
-                {copied ? <Check size={12} /> : <Copy size={12} />}
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
-
     </div>
   )
 }
-
