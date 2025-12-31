@@ -18,33 +18,30 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Doctor Appointment System",
+    title: "Project Alpha",
     category: "fullstack",
-    description:
-      "Comprehensive healthcare appointment management platform with patient records, doctor scheduling, and real-time booking capabilities. Built with modern web technologies.",
+    description: "A placeholder project for demonstration purposes.",
     color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    tech: ["ASP.NET Core", "Angular", "SQL Server", "Entity Framework", "Bootstrap"],
-    github: "https://github.com/alexandra-valkova/DoctorAppointment",
+    tech: ["React", "Node.js", "Postgres"],
+    github: "https://github.com/example/project-alpha",
     demo: null,
   },
   {
-    title: "Reservation System",
+    title: "Project Beta",
     category: "fullstack",
-    description:
-      "Full-stack reservation management system with ASP.NET Core backend and Angular frontend. Features real-time availability checking and booking confirmations.",
+    description: "Sample project showcasing dummy data and features.",
     color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    tech: ["ASP.NET Core", "Angular", "SQL Server", "RESTful API", "JWT"],
-    github: "https://github.com/tamasandacian/ASPNET-Core-Angular-ReservationSystem",
+    tech: ["Angular", "Express", "MongoDB"],
+    github: "https://github.com/example/project-beta",
     demo: null,
   },
   {
-    title: "Appointment Scheduling Platform",
+    title: "Project Gamma",
     category: "fullstack",
-    description:
-      "Robust appointment scheduling solution with role-based access control, automated notifications, and comprehensive calendar management features.",
+    description: "Demo application used as project placeholder.",
     color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    tech: ["ASP.NET Core", "Angular", "SQL Server", "Entity Framework", "RBAC"],
-    github: "https://github.com/smedavarapu1/Appointment-Scheduling",
+    tech: ["Vue", "Django", "SQLite"],
+    github: "https://github.com/example/project-gamma",
     demo: null,
   },
 ]
@@ -93,53 +90,52 @@ function App() {
       {/* Process Section */}
       <section className="process-section" id="expertise">
         <div className="section-title">Technical Expertise</div>
-
         <div className="process-grid">
           <div className="process-item">
-            <h3>Backend Development</h3>
+            <h3>Category A</h3>
             <div className="skills-cloud">
-              <span className="skill-tag">ASP.NET Core</span>
-              <span className="skill-tag">ASP.NET MVC</span>
-              <span className="skill-tag">C#</span>
-              <span className="skill-tag">Entity Framework</span>
-              <span className="skill-tag">RESTful APIs</span>
-              <span className="skill-tag">Node.js</span>
+              <span className="skill-tag">Skill A1</span>
+              <span className="skill-tag">Skill A2</span>
+              <span className="skill-tag">Skill A3</span>
+              <span className="skill-tag">Skill A4</span>
+              <span className="skill-tag">Skill A5</span>
+              <span className="skill-tag">Skill A6</span>
             </div>
           </div>
 
           <div className="process-item">
-            <h3>Frontend Development</h3>
+            <h3>Category B</h3>
             <div className="skills-cloud">
-              <span className="skill-tag">Angular</span>
-              <span className="skill-tag">React</span>
-              <span className="skill-tag">JavaScript</span>
-              <span className="skill-tag">HTML5</span>
-              <span className="skill-tag">CSS3</span>
-              <span className="skill-tag">Bootstrap</span>
+              <span className="skill-tag">Skill B1</span>
+              <span className="skill-tag">Skill B2</span>
+              <span className="skill-tag">Skill B3</span>
+              <span className="skill-tag">Skill B4</span>
+              <span className="skill-tag">Skill B5</span>
+              <span className="skill-tag">Skill B6</span>
             </div>
           </div>
 
           <div className="process-item">
-            <h3>Database &amp; Cloud</h3>
+            <h3>Category C</h3>
             <div className="skills-cloud">
-              <span className="skill-tag">SQL Server</span>
-              <span className="skill-tag">MySQL</span>
-              <span className="skill-tag">MongoDB</span>
-              <span className="skill-tag">PostgreSQL</span>
-              <span className="skill-tag">AWS</span>
-              <span className="skill-tag">Azure</span>
+              <span className="skill-tag">Skill C1</span>
+              <span className="skill-tag">Skill C2</span>
+              <span className="skill-tag">Skill C3</span>
+              <span className="skill-tag">Skill C4</span>
+              <span className="skill-tag">Skill C5</span>
+              <span className="skill-tag">Skill C6</span>
             </div>
           </div>
 
           <div className="process-item">
-            <h3>Tools &amp; Security</h3>
+            <h3>Category D</h3>
             <div className="skills-cloud">
-              <span className="skill-tag">Visual Studio</span>
-              <span className="skill-tag">Git &amp; GitHub</span>
-              <span className="skill-tag">Postman</span>
-              <span className="skill-tag">JWT Authentication</span>
-              <span className="skill-tag">RBAC</span>
-              <span className="skill-tag">OTP Verification</span>
+              <span className="skill-tag">Skill D1</span>
+              <span className="skill-tag">Skill D2</span>
+              <span className="skill-tag">Skill D3</span>
+              <span className="skill-tag">Skill D4</span>
+              <span className="skill-tag">Skill D5</span>
+              <span className="skill-tag">Skill D6</span>
             </div>
           </div>
         </div>
@@ -254,16 +250,10 @@ function App() {
       <section className="about-section" id="about">
         <div className="about-content">
           <p className="about-text">
-            <strong>Deekshitha NV</strong> is a Computer Science graduate from RGUKT
-            Ongole with a passion for building robust full-stack applications. With
-            expertise in ASP.NET Core, Angular, and modern web technologies, I
-            specialize in creating secure, scalable solutions that deliver real value.
-            My recent internship at Naresh IT provided hands-on experience in
-            developing enterprise-grade applications, optimizing database performance,
-            and implementing secure authentication systems.
+            <strong>John Doe</strong> is a placeholder developer used for demo and layout purposes. This profile provides mock information to demonstrate the design and structure of the site.
           </p>
           <p className="about-tagline">
-            Full Stack Developer | Problem Solver | Continuous Learner
+            Full Stack Developer | Example Profile
           </p>
         </div>
       </section>
@@ -273,19 +263,19 @@ function App() {
         <div className="footer-content">
           <div>
             <div className="logo" style={{ marginBottom: "1rem" }}>
-              DEEKSHITHA NV
+              ACME Corp
             </div>
             <p style={{ opacity: 0.5, fontSize: "0.85rem" }}>
               © 2025 • All rights reserved
             </p>
             <p style={{ opacity: 0.7, fontSize: "0.9rem", marginTop: "1rem" }}>
-              deekshithanarisetty@gmail.com
+              example@example.com
             </p>
             <p style={{ opacity: 0.7, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-              +91 6305455261
+              +1 (555) 123-4567
             </p>
             <p style={{ opacity: 0.5, fontSize: "0.85rem", marginTop: "0.5rem" }}>
-              Ongole, Andhra Pradesh
+              Anywhere, Earth
             </p>
           </div>
 
@@ -293,20 +283,20 @@ function App() {
             <div className="footer-column">
               <h4>Connect</h4>
               <a
-                href="https://github.com/NV-Deekshitha"
+                href="https://github.com/example"
                 target="_blank"
                 rel="noreferrer"
               >
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/deekshitha-nv"
+                href="https://linkedin.com/in/example"
                 target="_blank"
                 rel="noreferrer"
               >
                 LinkedIn
               </a>
-              <a href="mailto:deekshithanarisetty@gmail.com">Email</a>
+              <a href="mailto:example@example.com">Email</a>
             </div>
 
             <div className="footer-column">
@@ -315,10 +305,10 @@ function App() {
                 Projects
               </a>
               <a href="#about">
-                About Me
+                About
               </a>
               <a
-                href="https://drive.google.com"
+                href="https://example.com/resume.pdf"
                 target="_blank"
                 rel="noreferrer"
                 download
@@ -330,16 +320,16 @@ function App() {
             <div className="footer-column">
               <h4>Location</h4>
               <a
-                href="https://maps.google.com/?q=Ongole,+Andhra+Pradesh"
+                href="https://maps.google.com/?q=Anywhere"
                 target="_blank"
                 rel="noreferrer"
               >
-                Ongole, AP
+                Anywhere
               </a>
-              <a href="mailto:deekshithanarisetty@gmail.com?subject=Remote%20Opportunity">
+              <a href="mailto:example@example.com?subject=Remote%20Opportunity">
                 Open to Remote
               </a>
-              <a href="mailto:deekshithanarisetty@gmail.com?subject=Project%20Inquiry">
+              <a href="mailto:example@example.com?subject=Project%20Inquiry">
                 Available for Work
               </a>
             </div>
@@ -347,13 +337,13 @@ function App() {
 
           <div className="contact-buttons">
             <a
-              href="mailto:deekshithanarisetty@gmail.com"
+              href="mailto:example@example.com"
               className="btn btn-primary"
             >
               Send a Message
             </a>
-            <a href="tel:+916305455261" className="btn">
-              Call Me
+            <a href="tel:+15551234567" className="btn">
+              Call
             </a>
           </div>
         </div>
